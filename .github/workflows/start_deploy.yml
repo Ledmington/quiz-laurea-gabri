@@ -22,4 +22,4 @@ jobs:
             cp -r /tmp/backend . && \
             git add . && \
             git commit -m "push $(date '+%y%m%d%H%M')" && \
-            git push --set-upstream=origin deploy/heroku
+            git push
