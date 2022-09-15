@@ -10,12 +10,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: oleksiyrudenko/gha-git-credentials@v2-latest
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
+    
       - name: whole workflow (because GitHub Actions resets environment after each command)
         run: |
           git clone https://github.com/Ledmington/quiz-laurea-gabri.git && \
             cd quiz-laurea-gabri && \
-            git config user.name "GitHub Actions bot" && \
-            git config user.email "github.actions@fake.com" && \
             cp -r backend/ /tmp && \
             git checkout deploy/heroku && \
             git pull && \
