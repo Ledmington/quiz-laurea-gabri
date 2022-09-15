@@ -27,17 +27,4 @@ jobs:
       with:
         force: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: deploy/heroku #${{ github.ref }}
-        
-      # - run: |
-      #     git clone https://github.com/Ledmington/quiz-laurea-gabri.git && \
-      #       cd quiz-laurea-gabri && \
-      #       git config --global user.name "GitHub Action" && \
-      #       git config --global user.email "github-action@users.noreply.github.com" && \
-      #       cp -r backend/ /tmp && \
-      #       git checkout deploy/heroku && \
-      #       git pull && \
-      #       cp -r /tmp/backend . && \
-      #       git add . && \
-      #       git commit -m "push $(date '+%y%m%d%H%M')" && \
-      #       git push
+        branch: deploy/heroku
