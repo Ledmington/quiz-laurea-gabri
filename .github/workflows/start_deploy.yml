@@ -20,7 +20,7 @@ jobs:
         run: cd quiz-laurea-gabri && git checkout deploy/heroku
       
       - name: rebase
-        run: git rebase -Xours master
+        run: git pull && git rebase -Xours master
       
       - name: Delete all unnecessary files
         run: rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend && mv backend/* . && rm -rf backend
