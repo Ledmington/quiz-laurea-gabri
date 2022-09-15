@@ -16,11 +16,8 @@ jobs:
           repository: 'quiz-laurea-gabri'
           access-token: ${{ secrets.ACCESS_TOKEN }}
       
-      - name: checkout branch deploy/heroku
-        run: cd quiz-laurea-gabri && git checkout deploy/heroku
-      
-      - name: rebase
-        run: git pull && git rebase -Xours master
+      - name: checkout branch deploy/heroku and rebase
+        run: cd quiz-laurea-gabri && git checkout deploy/heroku && git pull && git rebase -Xours master
       
       - name: Delete all unnecessary files
         run: rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend && mv backend/* . && rm -rf backend
