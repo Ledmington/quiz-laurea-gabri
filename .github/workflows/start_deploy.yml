@@ -10,11 +10,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: GuillaumeFalourd/clone-github-repo-action@v2
-        with:
-          owner: 'Ledmington'
-          repository: 'quiz-laurea-gabri'
-          access-token: ${{ secrets.ACCESS_TOKEN }}
+      - name: clone repo
+        run: git clone https://github.com/Ledmington/quiz-laurea-gabri.git
       
       - name: Enter repo and git config
         run : cd quiz-laurea-gabri && git config user.name "GitHub Actions script" && git config user.email "github.actions@fake.com"
