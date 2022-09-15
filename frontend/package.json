@@ -1,5 +1,5 @@
 {
-  "name": "vue-project",
+  "name": "quiz-laurea-gabri-frontend",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
