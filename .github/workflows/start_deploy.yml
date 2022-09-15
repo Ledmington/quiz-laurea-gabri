@@ -14,8 +14,7 @@ jobs:
         run: |
           git clone https://github.com/Ledmington/quiz-laurea-gabri.git && \
             cd quiz-laurea-gabri && \
-            git init && \
-            git config user.name "GitHub Actions script" && \
+            git config user.name "GitHub Actions bot" && \
             git config user.email "github.actions@fake.com" && \
             rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend .github && \
             mv backend/* . && \
