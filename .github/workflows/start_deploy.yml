@@ -18,7 +18,7 @@ jobs:
             git config user.email "github.actions@fake.com" && \
             git checkout deploy/heroku && \
             git pull && \
-            git rebase -Xours master && \
+            git rebase -Xtheirs master && \
             rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend .github && \
             mv backend/* . && \
             rm -rf backend && \
