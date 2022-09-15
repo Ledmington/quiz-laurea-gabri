@@ -16,14 +16,14 @@ jobs:
           repository: 'quiz-laurea-gabri'
           access-token: ${{ secrets.ACCESS_TOKEN }}
       
+      - name: Enter repo and git config
+        run : cd quiz-laurea-gabri && git config user.name "GitHub Actions script" && git config user.email "github.actions@fake.com"
+      
       - name: checkout branch deploy/heroku and rebase
-        run: cd quiz-laurea-gabri && git checkout deploy/heroku && git pull && git rebase -Xours master
+        run: git checkout deploy/heroku && git pull && git rebase -Xours master
       
       - name: Delete all unnecessary files
         run: rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend && mv backend/* . && rm -rf backend
-
-      - name: git config
-        run: git config user.name "GitHub Actions script" && git config user.email "github.actions@fake.com"
 
       - name: commit and push
         run: git add . && git commit -m "push $(date '+%y%m%d%H%M')" && git push
