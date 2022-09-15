@@ -17,7 +17,7 @@ jobs:
         run : git init && git config user.name "GitHub Actions script" && git config user.email "github.actions@fake.com"
       
       - name: Delete all unnecessary files
-        run: rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend .github && mv backend/* . && rm -rf backend
+        run: ls -la && rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend .github && ls -la && mv backend/* . && ls-la && rm -rf backend
 
       - name: checkout branch deploy/heroku and rebase
         run: git checkout deploy/heroku && git remote add origin https://github.com/Ledmington/quiz-laurea-gabri.git
