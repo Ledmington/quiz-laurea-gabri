@@ -16,7 +16,9 @@ jobs:
         fetch-depth: 0
     - name: Create local changes
       run: |
-        rm -rf frontend README.md .gitignore .gitattributes docker-compose.yml && mv backend/* . && rm -rf backend
+        rm -rf frontend README.md .gitignore .gitattributes docker-compose.yml && \
+        mv backend/* . && \
+        rm -rf backend
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
