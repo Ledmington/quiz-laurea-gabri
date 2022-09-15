@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: clone repo
-        run: git clone https://github.com/Ledmington/quiz-laurea-gabri.git && cd quiz-laurea-gabri
+        run: git clone https://github.com/Ledmington/quiz-laurea-gabri.git && cd quiz-laurea-gabri && ls -la
 
       - name: git config
-        run : git init && git config user.name "GitHub Actions script" && git config user.email "github.actions@fake.com"
+        run : ls -la && git init && git config user.name "GitHub Actions script" && git config user.email "github.actions@fake.com"
       
       - name: Delete all unnecessary files
         run: ls -la && rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend .github && ls -la && mv backend/* . && ls-la && rm -rf backend
