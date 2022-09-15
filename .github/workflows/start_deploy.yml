@@ -13,10 +13,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: oleksiyrudenko/gha-git-credentials@v2-latest
         with:
+          global: true
           token: '${{ secrets.GITHUB_TOKEN }}'
-    
-      - name: whole workflow (because GitHub Actions resets environment after each command)
-        run: |
+      - run: |
           git clone https://github.com/Ledmington/quiz-laurea-gabri.git && \
             cd quiz-laurea-gabri && \
             cp -r backend/ /tmp && \
