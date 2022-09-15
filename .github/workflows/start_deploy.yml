@@ -10,15 +10,33 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          git clone https://github.com/Ledmington/quiz-laurea-gabri.git && \
-            cd quiz-laurea-gabri && \
-            git config --global user.name "GitHub Action" && \
-            git config --global user.email "github-action@users.noreply.github.com" && \
-            cp -r backend/ /tmp && \
-            git checkout deploy/heroku && \
-            git pull && \
-            cp -r /tmp/backend . && \
-            git add . && \
-            git commit -m "push $(date '+%y%m%d%H%M')" && \
-            git push
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+    - name: Create local changes
+      run: |
+        rm -rf .github frontend README.md .gitignore .gitattributes docker-compose.yml
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "push $(date '+%y%m%d%H%M')" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: deploy/heroku #${{ github.ref }}
+        
+      # - run: |
+      #     git clone https://github.com/Ledmington/quiz-laurea-gabri.git && \
+      #       cd quiz-laurea-gabri && \
+      #       git config --global user.name "GitHub Action" && \
+      #       git config --global user.email "github-action@users.noreply.github.com" && \
+      #       cp -r backend/ /tmp && \
+      #       git checkout deploy/heroku && \
+      #       git pull && \
+      #       cp -r /tmp/backend . && \
+      #       git add . && \
+      #       git commit -m "push $(date '+%y%m%d%H%M')" && \
+      #       git push
