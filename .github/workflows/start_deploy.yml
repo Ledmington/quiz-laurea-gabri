@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: whole workflow (because GitHub Actions resets environment after each command)
         run: |
-          git clone https://github.com/Ledmington/quiz-laurea-gabri.git && \
+          rm -rf quiz-laurea-gabri && \
+            git clone https://github.com/Ledmington/quiz-laurea-gabri.git && \
             cd quiz-laurea-gabri && \
             git config user.name "GitHub Actions bot" && \
             git config user.email "github.actions@fake.com" && \
@@ -20,9 +21,7 @@ jobs:
             mv backend/* . && \
             rm -rf backend && \
             git checkout deploy/heroku && \
-            ls -la && \
             git remote add origin https://github.com/Ledmington/quiz-laurea-gabri.git && \
             git add . && \
-            ls -la && \
             git commit -m "push $(date '+%y%m%d%H%M')" && \
             git push --set-upstream=origin deploy/heroku
