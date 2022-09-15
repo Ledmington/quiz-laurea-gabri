@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: checkout branch deploy/heroku
+        run: git checkout deploy/heroku
+      
+      - name: rebase
+        run: git rebase -Xours master
+      
+      - name: Delete all unnecessary files
+        run: rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend && mv backend/* . && rm -rf backend
+
+      - name: commit and push
+        run: git add . && git commit -m "push $(date '+%y%m%d%H%M')" && git push
