@@ -13,10 +13,10 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: checkout branch deploy/heroku
-        run: git checkout -b deploy/heroku
+        run: git checkout deploy/heroku
       
       - name: rebase
-        run: git rebase -Xours master
+        run: git pull && git rebase -Xours master
       
       - name: Delete all unnecessary files
         run: rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend && mv backend/* . && rm -rf backend
