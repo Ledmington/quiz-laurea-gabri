@@ -17,10 +17,10 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
       
       - name: checkout branch deploy/heroku
-        run: git checkout deploy/heroku
+        run: cd quiz-alurea-gabri && git checkout deploy/heroku
       
       - name: rebase
-        run: git pull && git rebase -Xours master
+        run: git rebase -Xours master
       
       - name: Delete all unnecessary files
         run: rm -rf .gitignore .gitattributes README.md docker-compose.yml frontend && mv backend/* . && rm -rf backend
