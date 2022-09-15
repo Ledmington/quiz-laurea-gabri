@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: whole workflow (because GitHub Actions resets environment after each command)
         run: |
-          rm -rf quiz-laurea-gabri && \
+          rm -rf ./* && \
             git clone https://github.com/Ledmington/quiz-laurea-gabri.git && \
             cd quiz-laurea-gabri && \
             git config user.name "GitHub Actions bot" && \
