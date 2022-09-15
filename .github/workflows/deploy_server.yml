@@ -1,9 +1,12 @@
 name: Deploy Server to Heroku
 
 on:
-  push:
-    branches:
-      - deploy/heroku
+  workflow_run:
+    workflows: ["Deploy"]
+    types:
+      - completed
+    branch:
+      - master
   workflow_dispatch:
 
 jobs:
