@@ -13,14 +13,10 @@ jobs:
   heroku:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      
-      - name: login
-        run: sudo heroku login && sudo heroku container:login
-      
+      - uses: actions/checkout@v2      
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "quiz-laurea-gabri-backend"
           heroku_email: "ledmington.dev@gmail.com"
-          usedocker: true
+          #usedocker: true
