@@ -5,7 +5,7 @@ on:
     workflows: ["Deploy"]
     types:
       - completed
-    branches:
+    branch:
       - deploy/heroku
   workflow_dispatch:
 
