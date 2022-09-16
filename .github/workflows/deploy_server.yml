@@ -6,7 +6,7 @@ on:
     types:
       - completed
     branch:
-      - master
+      - deploy/heroku
   workflow_dispatch:
 
 jobs:
