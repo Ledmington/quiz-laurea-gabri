@@ -14,9 +14,33 @@ jobs:
       with:
         persist-credentials: false
         fetch-depth: 0
+    - name: Remove frontend/
+      uses: JesseTG/rm@v1.0.0
+      with:
+        path: ./frontend/
+    - name: Remove README.md
+      uses: JesseTG/rm@v1.0.0
+      with:
+        path: ./README.md
+    - name: Remove .gitignore
+      uses: JesseTG/rm@v1.0.0
+      with:
+        path: ./.gitignore
+    - name: Remove .gitattributes
+      uses: JesseTG/rm@v1.0.0
+      with:
+        path: ./.gitattributes
+    - name: Remove docker-compose.yml
+      uses: JesseTG/rm@v1.0.0
+      with:
+        path: ./docker-compose.yml
+    - name: Remove .github/
+      uses: JesseTG/rm@v1.0.0
+      with:
+        path: ./.github/
+
     - name: Create local changes
       run: |
-        rm -rf .github/ frontend README.md .gitignore .gitattributes docker-compose.yml && \
         mv backend/* . && \
         rm -rf backend
     - name: Commit files
