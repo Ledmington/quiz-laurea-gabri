@@ -5,7 +5,7 @@ on:
     workflows: ["Deploy"]
     types:
       - completed
-    branch:
+    branches:
       - deploy/heroku
   workflow_dispatch:
 
@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
+      - name: login
+        run: sudo heroku login && sudo heroku container:login
+      
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
