@@ -6,6 +6,4 @@ import './assets/main.css'
 
 createApp(App).mount('#app')
 
-while (true) {
-    axios.get("localhost:3000").then(response => console.log(response.data));
-}
+axios.get("http://localhost:3000").then(response => console.log(response.data));

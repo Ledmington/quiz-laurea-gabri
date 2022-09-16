@@ -3,4 +3,5 @@
 !package-lock.json
 !index.html
 !src/
+!public/
 !vite.config.js
