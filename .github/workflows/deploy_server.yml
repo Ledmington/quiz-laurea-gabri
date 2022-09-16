@@ -19,4 +19,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "quiz-laurea-gabri-backend"
           heroku_email: "ledmington.dev@gmail.com"
-          usedocker: true
+          #usedocker: true
