@@ -11,6 +11,7 @@ create_app:
 
 deploy:
 	heroku login
+	heroku git:remote -a quiz-laurea-gabri
 	git add .
 	git commit -m "deploy $(date '+%y%m%d%H%M')"
 	git push heroku main
