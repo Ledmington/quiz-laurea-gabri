@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-port = 80;
+port = 3000;
 
 if (process.env.SERVER_PORT) {
   port = process.env.SERVER_PORT;
