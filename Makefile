@@ -13,7 +13,8 @@ deploy:
 	heroku login
 	heroku git:remote -a quiz-laurea-gabri
 	git add .
-	git commit -m "deploy $(date '+%y%m%d%H%M')"
+	git commit -m "deploy"
+	git subtree pull --prefix backend heroku master
 	git subtree push --prefix backend heroku master
 	git subtree push --prefix frontend/dist origin gh-pages
 
