@@ -15,8 +15,8 @@ deploy:
 	heroku login
 	git add .
 	git commit -m "deploy $(date '+%y%m%d%H%M')"
-	git subtree push --prefix backend heroku main
-	git subtree push --prefix frontend heroku main
+	git subtree push --prefix backend heroku main --force
+	git subtree push --prefix frontend heroku main --force
 
 clean:
 	rm -rf backend/node_modules frontend/node_modules
