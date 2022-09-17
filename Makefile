@@ -6,9 +6,7 @@ install:
 
 deploy:
 	heroku login
-	heroku create
-	heroku git:remote -a quiz-laurea-gabri-backend
-	heroku apps:rename quiz-laurea-gabri-backend
+	heroku create quiz-laurea-gabri-backend --region=eu
 	heroku git:remote -a quiz-laurea-gabri-backend
 	git add .
 	git commit -m "deploy $(date '+%y%m%d%H%M')"
